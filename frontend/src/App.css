@@ -1,0 +1,181 @@
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Fira+Code:wght@400;500&display=swap');
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Prevents entire page from scrolling */
+}
+
+/* Light & Dark Mode */
+.light-mode {
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.dark-mode {
+  background-color: #1e1e1e;
+  color: #fff;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+}
+
+header h1 {
+  font-size: 1.5rem;
+}
+
+.mode-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+}
+
+/* Main Layout */
+main {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  max-width: 1200px;
+  margin: auto;
+  flex-grow: 1;
+  width: 100%;
+  height: calc(100vh - 80px); /* Full height minus header */
+  overflow: hidden; /* Prevents layout overflow */
+}
+
+/* Left Section (Editor) */
+.left {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Code Editor */
+.code {
+  background: #282c34;
+  padding: 1rem;
+  border-radius: 8px;
+  flex-grow: 1;
+  min-height: 300px;
+  color: #fff;
+  overflow: auto; /* Allows scrolling inside */
+}
+
+/* Review Button */
+.review-btn {
+  display: block;
+  margin: 1rem auto;
+  padding: 0.7rem 2rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  background: #ff9800;
+  color: white;
+  transition: 0.3s;
+}
+
+.review-btn:hover {
+  background: #ffb74d;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 10px;
+  right: 38px;
+  background: #8ae7da;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.copy-btn:hover {
+  background: transparent;
+}
+
+/* Right Section (Review Output) */
+.right {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  overflow: hidden; /* Prevents overflow */
+  position: relative;
+}
+
+/* Fix: Markdown Preview Scroll */
+.right .markdown-preview {
+  font-size: 1rem;
+  line-height: 1.6;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Enables scrolling inside right section */
+  padding: 1rem;
+  word-wrap: break-word; /* Prevents text overflow */
+}
+
+/* Light Mode - Fix Right Section Visibility */
+.light-mode .right {
+  background: #ffffff;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+/* Dark Mode - Right Section */
+.dark-mode .right {
+  background: #1e1e1e;
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+    height: auto;
+    overflow: auto; /* Allows scrolling on smaller screens */
+  }
+  
+  .left, .right {
+    width: 100%;
+    height: auto;
+    overflow: auto; /* Prevents content overflow on mobile */
+  }
+}
