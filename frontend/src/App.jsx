@@ -51,7 +51,7 @@ const App = () => {
                 backgroundColor: darkMode ? "#282c34" : "#f5f5f5",
                 color: darkMode ? "#ffffff" : "#333",
                 borderRadius: "5px",
-              }}
+              }}     
             />   
           </div>
           <button className="review-btn" onClick={reviewCode}>Review Code</button>
